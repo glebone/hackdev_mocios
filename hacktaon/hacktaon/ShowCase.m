@@ -2,8 +2,8 @@
 //  ShowCase.m
 //  conficane_test
 //
-//  Created by gleb dobzhanskiy on 01.12.11.
-//  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
+//  Created by gleb dobzhanskiy on 14.05.12.
+//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
 #import "ShowCase.h"
@@ -18,6 +18,8 @@
 @synthesize  showCaseRawString;
 @synthesize  presentcastReady;
 @synthesize fileStamp;
+@synthesize imgUrls;
+@synthesize albumID;
 
 
 
@@ -314,7 +316,35 @@
 {
     NSString *sid = (NSString *)n.object;
     NSLog(@"Coverting  Ready!!!! ");
- 
+    [self generateResultJSON];
+}
+
+
+- (NSString *) generateResultJSON
+{
+    NSMutableString *imgUrlsString  = [[NSMutableString alloc] init];
+    for (NSString *curUrl in self.imgUrls)
+    {
+        [imgUrlsString appendString:curUrl];
+    }
+    NSDictionary *tmpVals = [[[NSDictionary alloc] initWithObjectsAndKeys:self.albumID, @"album_id", 
+                                                                         self.albumID, @"album_name",
+                                                                         imgUrlsString, @"photos_data",
+                                          	                             [self getResultString], @"switches_data",
+                                                                         nil] autorelease];  
+    [imgUrlsString release];
+    
+    SBJsonWriter *writer = [[[SBJsonWriter alloc] init] autorelease];
+    
+    
+    NSLog(@"%@", [writer stringWithObject:tmpVals]);
+    return [writer stringWithObject:tmpVals];
+}
+
+
+- (void) uploadMedia
+{
+    
 }
 
 

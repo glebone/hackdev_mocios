@@ -160,6 +160,7 @@
 		
 		[_barItems addObjectsFromArray:items];
 	}
+     self.curShowCase = [[ShowCase alloc] init];
 	return self;
 }
 
@@ -167,7 +168,7 @@
 - (void) startSession
 {
     NSLog(@"Strat session");
-    self.curShowCase = [[ShowCase alloc] init];
+   
     [self.curShowCase startTick];
     
 }

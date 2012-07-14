@@ -2,8 +2,8 @@
 //  ShowCase.h
 //  conficane_test
 //
-//  Created by gleb dobzhanskiy on 01.12.11.
-//  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
+//  Created by gleb dobzhanskiy on 14.06.2012.
+//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -19,6 +19,8 @@
     AVAudioRecorder *audioRecorder;
     AVAudioPlayer *audioPlayer;
     NSString *fileStamp;
+    NSString *albumID;
+    NSArray  *imgUrls;
 
     
 }
@@ -28,6 +30,8 @@
 @property (nonatomic, retain) NSArray * indexArray;
 @property (nonatomic, retain) NSString * presentcastReady;
 @property (nonatomic, retain) NSString * fileStamp;
+@property (nonatomic, retain) NSString *albumID;
+@property (nonatomic, retain) NSArray *imgUrls;
 
 
 -(NSString *) getPathForRecording;
@@ -69,7 +73,8 @@
 -(IBAction) recordAudio;
 - (NSString *) getConvertedAudioFilePath;
 - (NSString *) getReadyConvertedAudioFilePath;
-
+- (NSString *) generateResultJSON;
+- (void) uploadMedia;
 
 
 @end

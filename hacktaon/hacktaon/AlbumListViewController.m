@@ -239,6 +239,7 @@
     {
         [tmpImages addObject:[NSString stringWithFormat:@"%@",curObj]];
     }
+    
     NSLog(@"%@", tmpImages);
     self.networkImages = [[NSArray alloc] initWithArray:tmpImages]; 
     self.networkCaptions = [[DataManager sharedManager] photoLinks];
@@ -266,8 +267,8 @@
     
     self.networkGallery = [[FGalleryViewController alloc] initWithPhotoSource:self barItems:barItems];
     
-    
-    
+    self.networkGallery.curShowCase.imgUrls = self.networkImages;
+    self.networkGallery.curShowCase.albumID = @"000";
     
     [self presentModalViewController:self.networkGallery animated:YES];
 
