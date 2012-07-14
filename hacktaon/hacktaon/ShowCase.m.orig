@@ -316,10 +316,8 @@
 {
     NSString *sid = (NSString *)n.object;
     NSLog(@"Coverting  Ready!!!! ");
-    //notification about upload possibility and conversion
-    [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:NOTIFICATION_CONVERTION_ENDED object:nil]];
-    [self generateResultJSON];   
- 
+<<<<<<< HEAD
+    [self generateResultJSON];
 }
 
 
@@ -348,6 +346,12 @@
 - (void) uploadMedia
 {
     
+=======
+    //notification about upload possibility and conversion
+    [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:NOTIFICATION_CONVERTION_ENDED object:nil]];
+    
+ 
+>>>>>>> d8b26b6d0090b5fd75d03d6c5640978f96b6db50
 }
 
 
