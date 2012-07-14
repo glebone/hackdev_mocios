@@ -9,6 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
+{
+    
+    IBOutlet UITextField *_loginTextField;
+    IBOutlet UITextField *_passwordTextField;
+}
 
 - (IBAction)getAlbumsTouchUpInside:(id)sender;
 - (IBAction)getPhotosTouchUpInside:(id)sender;

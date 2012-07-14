@@ -23,6 +23,10 @@
 
 - (void)viewDidUnload
 {
+    [_loginTextField release];
+    _loginTextField = nil;
+    [_passwordTextField release];
+    _passwordTextField = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -33,11 +37,18 @@
 }
 
 - (IBAction)getAlbumsTouchUpInside:(id)sender {
-    [[DataManager sharedManager] setUserName:@"dkann@ukr.net" andPassword:@"makito66"];
-    [[DataManager sharedManager] getAlbumList];
+    [[DataManager sharedManager] setUserName:_loginTextField.text andPassword:_passwordTextField.text];
+    [self performSegueWithIdentifier:@"showAlbumList" sender:self];
 }
 
 - (IBAction)getPhotosTouchUpInside:(id)sender {
-    [[DataManager sharedManager] fetchPhotosFromAlbumAtIndex:0];
+//    [[DataManager sharedManager] getPhotosFromAlbumAtIndex:0];
+    
+}
+
+- (void)dealloc {
+    [_loginTextField release];
+    [_passwordTextField release];
+    [super dealloc];
 }
 @end

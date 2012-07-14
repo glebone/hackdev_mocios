@@ -10,6 +10,7 @@
 		DA916B0415B195CE0071072C /* libGDataTouchStaticLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA916ABE15B190470071072C /* libGDataTouchStaticLib.a */; };
 		DA916B0615B195E70071072C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA916B0515B195E70071072C /* Security.framework */; };
 		DA916B0815B195ED0071072C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA916B0715B195ED0071072C /* SystemConfiguration.framework */; };
+		DA916C4915B1B0670071072C /* AlbumListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA916C4815B1B0670071072C /* AlbumListViewController.m */; };
 		DAD094FE15B1823900E82ACC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAD094FD15B1823900E82ACC /* UIKit.framework */; };
 		DAD0950015B1823900E82ACC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAD094FF15B1823900E82ACC /* Foundation.framework */; };
 		DAD0950215B1823900E82ACC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAD0950115B1823900E82ACC /* CoreGraphics.framework */; };
@@ -388,6 +389,9 @@
 		DA916C4415B1976F0071072C /* SBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonBase.h; sourceTree = "<group>"; };
 		DA916C4515B1976F0071072C /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
 		DA916C4615B1976F0071072C /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
+		DA916C4715B1B0670071072C /* AlbumListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumListViewController.h; sourceTree = "<group>"; };
+		DA916C4815B1B0670071072C /* AlbumListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumListViewController.m; sourceTree = "<group>"; };
+		DA916C4A15B1B3450071072C /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		DAD094F915B1823900E82ACC /* hacktaon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hacktaon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAD094FD15B1823900E82ACC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DAD094FF15B1823900E82ACC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -436,7 +440,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		DA916B0915B1976F0071072C /* Headers */ = {
+		DA916B0915B1976F0071072C /* GData */ = {
 			isa = PBXGroup;
 			children = (
 				DA916B0A15B1976F0071072C /* GData.h */,
@@ -757,13 +761,13 @@
 				DA916C4515B1976F0071072C /* SBJsonParser.h */,
 				DA916C4615B1976F0071072C /* SBJsonWriter.h */,
 			);
-			path = Headers;
+			name = GData;
+			path = ../Headers;
 			sourceTree = "<group>";
 		};
 		DAD094EE15B1823900E82ACC = {
 			isa = PBXGroup;
 			children = (
-				DA916B0915B1976F0071072C /* Headers */,
 				DAD0950315B1823900E82ACC /* hacktaon */,
 				DAD094FC15B1823900E82ACC /* Frameworks */,
 				DAD094FA15B1823900E82ACC /* Products */,
@@ -781,9 +785,9 @@
 		DAD094FC15B1823900E82ACC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DA916AAF15B190460071072C /* GData.xcodeproj */,
 				DA916B0715B195ED0071072C /* SystemConfiguration.framework */,
 				DA916B0515B195E70071072C /* Security.framework */,
-				DA916AAF15B190460071072C /* GData.xcodeproj */,
 				DAFD79A315B187D100AF3012 /* CoreData.framework */,
 				DAD094FD15B1823900E82ACC /* UIKit.framework */,
 				DAD094FF15B1823900E82ACC /* Foundation.framework */,
@@ -795,12 +799,16 @@
 		DAD0950315B1823900E82ACC /* hacktaon */ = {
 			isa = PBXGroup;
 			children = (
+				DA916C4A15B1B3450071072C /* Constants.h */,
+				DA916B0915B1976F0071072C /* GData */,
 				DAD0951D15B1843F00E82ACC /* DataManager */,
 				DAD0950C15B1823900E82ACC /* AppDelegate.h */,
 				DAD0950D15B1823900E82ACC /* AppDelegate.m */,
 				DAD0950F15B1823900E82ACC /* MainStoryboard.storyboard */,
 				DAD0951215B1823900E82ACC /* ViewController.h */,
 				DAD0951315B1823900E82ACC /* ViewController.m */,
+				DA916C4715B1B0670071072C /* AlbumListViewController.h */,
+				DA916C4815B1B0670071072C /* AlbumListViewController.m */,
 				DAD0950415B1823900E82ACC /* Supporting Files */,
 			);
 			path = hacktaon;
@@ -937,6 +945,7 @@
 				DAD0950E15B1823900E82ACC /* AppDelegate.m in Sources */,
 				DAD0951415B1823900E82ACC /* ViewController.m in Sources */,
 				DAD0951C15B1842000E82ACC /* DataManager.m in Sources */,
+				DA916C4915B1B0670071072C /* AlbumListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

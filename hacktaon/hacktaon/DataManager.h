@@ -9,17 +9,19 @@
 #import <Foundation/Foundation.h>
 
 @class GDataServiceGooglePhotos;
+@class GDataFeedPhotoAlbum;
+@class GDataFeedPhotoUser;
 
 @interface DataManager : NSObject
 + (DataManager *)sharedManager;
 - (void)setUserName:(NSString *)uName andPassword:(NSString *)pass;
 - (void)getAlbumList;
-- (void)fetchPhotosFromAlbumAtIndex:(int)index;
+- (void)getPhotosFromAlbumAtIndex:(int)index;
 - (NSMutableArray *)photoLinks;
 
 @property(nonatomic, retain) GDataServiceGooglePhotos *service;
-@property(nonatomic, retain) NSArray *albums;
-@property(nonatomic, retain) NSArray *photos;
+@property(nonatomic, retain) GDataFeedPhotoUser *albumsFeed;
+@property(nonatomic, retain) GDataFeedPhotoAlbum *photosFeed;
 
 
 @end

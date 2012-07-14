@@ -16,14 +16,16 @@
 #import "GDataEntryPhotoAlbum.h"
 #import "GDataEntryPhoto.h"
 
+#import "Constants.h"
+
 
 static DataManager *_sharedManager = nil;
 
 @interface DataManager()
 {
     GDataServiceGooglePhotos *_service;
-    NSArray                  *_albums;
-    NSArray                  *_photos;
+    GDataFeedPhotoUser                  *_albumsFeed;
+    GDataFeedPhotoAlbum                 *_photosFeed;
 }
 
 @end
@@ -31,8 +33,8 @@ static DataManager *_sharedManager = nil;
 
 @implementation DataManager
 @synthesize service = _service;
-@synthesize albums = _albums;
-@synthesize photos = _photos;
+@synthesize albumsFeed = _albumsFeed;
+@synthesize photosFeed = _photosFeed;
 
 + (DataManager *)sharedManager
 {
@@ -46,13 +48,15 @@ static DataManager *_sharedManager = nil;
     self = [super init];
     if (self) {
         self.service = [[GDataServiceGooglePhotos alloc] init];
+        self.service.shouldCacheResponseData = YES;
     }
     return self;
 }
 -(void)dealloc
 {
     [_service release];
-    [_albums release];
+    [_albumsFeed release];
+    [_photosFeed release];
     [super dealloc];
 }
 
@@ -62,7 +66,7 @@ static DataManager *_sharedManager = nil;
 }
 - (void)getAlbumList
 {
-    [self setAlbums:nil];
+    [self setAlbumsFeed:nil];
     
     GDataServiceTicket *ticket;
     NSURL *feedURL = [GDataServiceGooglePhotos photoFeedURLForUserID:_service.username
@@ -80,7 +84,9 @@ static DataManager *_sharedManager = nil;
                        error:(NSError *)error {
     if (error == nil) {  
         NSArray *entries = [feed entries];
-        [self setAlbums:entries];
+        [self setAlbumsFeed:feed];
+        
+        [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:NOTIFICATION_FETCH_ALBUM_LIST_SUCCESS object:[NSDictionary dictionaryWithObject:_albumsFeed forKey:ALBUMS_KEY]]];
         
         NSLog(@"entries %i", [entries count]);
         if ([entries count] > 0) {
@@ -100,14 +106,15 @@ static DataManager *_sharedManager = nil;
     }
 }
 
-- (void)fetchPhotosFromAlbumAtIndex:(int)index {
+- (void)getPhotosFromAlbumAtIndex:(int)index {
     
-    if (!([_albums count] > 0 && index > -1)) return;
-    GDataEntryPhotoAlbum *album = [_albums objectAtIndex:index];
+    NSArray *albums = [_albumsFeed entries];
+    if (!([albums count] > 0 && index > -1)) return;
+    GDataEntryPhotoAlbum *album = [albums objectAtIndex:index];
     if (album) {
         NSURL *feedURL = [[album feedLink] URL];
         if (feedURL) {
-            [self setPhotos:nil];
+            [self setPhotosFeed:nil];
 
             GDataServiceTicket *ticket;
             ticket = [_service fetchFeedWithURL:feedURL
@@ -125,7 +132,7 @@ static DataManager *_sharedManager = nil;
                error:(NSError *)error {
     if (error == nil) {  
         NSArray *entries = [feed entries];
-        [self setPhotos:entries];
+        [self setPhotosFeed:feed];
         
         NSLog(@"LINKS: \n %@", [self photoLinks]);
         
@@ -142,9 +149,10 @@ static DataManager *_sharedManager = nil;
 - (NSMutableArray *)photoLinks
 {
     NSMutableArray *links = [NSMutableArray array];
-    int photosCount = [_photos count];
+    NSArray *photos = [_photosFeed entries];
+    int photosCount = [photos count];
     for (int i = 0; i < photosCount; i++) {
-        GDataEntryPhoto *photo = [_photos objectAtIndex:i];
+        GDataEntryPhoto *photo = [photos objectAtIndex:i];
         GDataEntryContent *c = [photo content];
         [links addObject:c.sourceURL];
     }
