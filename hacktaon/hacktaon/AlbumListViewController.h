@@ -22,6 +22,7 @@
     NSArray *networkCaptions;
 	FGalleryViewController *localGallery;
     FGalleryViewController *networkGallery;
+    IBOutlet UIView *_activityIndicatorView;
 }
 
 

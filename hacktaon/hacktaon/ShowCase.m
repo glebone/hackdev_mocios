@@ -7,7 +7,7 @@
 //
 
 #import "ShowCase.h"
-
+#import "Constants.h"
 
 @implementation ShowCase
 
@@ -316,7 +316,10 @@
 {
     NSString *sid = (NSString *)n.object;
     NSLog(@"Coverting  Ready!!!! ");
-    [self generateResultJSON];
+    //notification about upload possibility and conversion
+    [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:NOTIFICATION_CONVERTION_ENDED object:nil]];
+    
+ 
 }
 
 
