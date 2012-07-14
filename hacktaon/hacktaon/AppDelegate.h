@@ -7,6 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ASIHTTPRequest.h"
+#import "FGalleryPhoto.h"
+#import "ShowCase.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
