@@ -14,6 +14,7 @@
 #import "GDataFeedPhotoAlbum.h"
 #import "GDataFeedPhoto.h"
 
+#import "AlbumListCell.h"
 
 @interface AlbumListViewController ()
 {
@@ -67,17 +68,25 @@
     return [_albums count];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 60.;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] init];
-    }
+    static NSString *CellIdentifier = @"albumCellIdentifier";
+    AlbumListCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
     GDataEntryPhotoAlbum *album = [_albums objectAtIndex:indexPath.row];
     GDataTextConstruct *titleTextConstruct = [album title];
+    GDataMediaDescription *description = [[album mediaGroup] mediaDescription];
+    cell.descriptionLabel.text = [description contentStringValue];
+    
     NSString *title = [titleTextConstruct stringValue];
-    cell.textLabel.text = title;
+    cell.titleLabel.text = title;
+    cell.thumbnailImageView.image = [UIImage imageNamed:@"ScrapbookPhotos.jpeg"];
+    [cell setNeedsLayout];
     return cell;
 }
 

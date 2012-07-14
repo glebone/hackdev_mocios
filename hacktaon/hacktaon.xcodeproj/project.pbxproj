@@ -11,6 +11,8 @@
 		DA916B0615B195E70071072C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA916B0515B195E70071072C /* Security.framework */; };
 		DA916B0815B195ED0071072C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA916B0715B195ED0071072C /* SystemConfiguration.framework */; };
 		DA916C4915B1B0670071072C /* AlbumListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA916C4815B1B0670071072C /* AlbumListViewController.m */; };
+		DA916C4C15B1DCEB0071072C /* ScrapbookPhotos.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = DA916C4B15B1DCEB0071072C /* ScrapbookPhotos.jpeg */; };
+		DA916C4F15B1DFF40071072C /* AlbumListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA916C4E15B1DFF40071072C /* AlbumListCell.m */; };
 		DAD094FE15B1823900E82ACC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAD094FD15B1823900E82ACC /* UIKit.framework */; };
 		DAD0950015B1823900E82ACC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAD094FF15B1823900E82ACC /* Foundation.framework */; };
 		DAD0950215B1823900E82ACC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAD0950115B1823900E82ACC /* CoreGraphics.framework */; };
@@ -392,6 +394,9 @@
 		DA916C4715B1B0670071072C /* AlbumListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumListViewController.h; sourceTree = "<group>"; };
 		DA916C4815B1B0670071072C /* AlbumListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumListViewController.m; sourceTree = "<group>"; };
 		DA916C4A15B1B3450071072C /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		DA916C4B15B1DCEB0071072C /* ScrapbookPhotos.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ScrapbookPhotos.jpeg; sourceTree = "<group>"; };
+		DA916C4D15B1DFF40071072C /* AlbumListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumListCell.h; sourceTree = "<group>"; };
+		DA916C4E15B1DFF40071072C /* AlbumListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumListCell.m; sourceTree = "<group>"; };
 		DAD094F915B1823900E82ACC /* hacktaon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hacktaon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAD094FD15B1823900E82ACC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DAD094FF15B1823900E82ACC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -799,6 +804,7 @@
 		DAD0950315B1823900E82ACC /* hacktaon */ = {
 			isa = PBXGroup;
 			children = (
+				DA916C4B15B1DCEB0071072C /* ScrapbookPhotos.jpeg */,
 				DA916C4A15B1B3450071072C /* Constants.h */,
 				DA916B0915B1976F0071072C /* GData */,
 				DAD0951D15B1843F00E82ACC /* DataManager */,
@@ -809,6 +815,8 @@
 				DAD0951315B1823900E82ACC /* ViewController.m */,
 				DA916C4715B1B0670071072C /* AlbumListViewController.h */,
 				DA916C4815B1B0670071072C /* AlbumListViewController.m */,
+				DA916C4D15B1DFF40071072C /* AlbumListCell.h */,
+				DA916C4E15B1DFF40071072C /* AlbumListCell.m */,
 				DAD0950415B1823900E82ACC /* Supporting Files */,
 			);
 			path = hacktaon;
@@ -931,6 +939,7 @@
 			files = (
 				DAD0950815B1823900E82ACC /* InfoPlist.strings in Resources */,
 				DAD0951115B1823900E82ACC /* MainStoryboard.storyboard in Resources */,
+				DA916C4C15B1DCEB0071072C /* ScrapbookPhotos.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -946,6 +955,7 @@
 				DAD0951415B1823900E82ACC /* ViewController.m in Sources */,
 				DAD0951C15B1842000E82ACC /* DataManager.m in Sources */,
 				DA916C4915B1B0670071072C /* AlbumListViewController.m in Sources */,
+				DA916C4F15B1DFF40071072C /* AlbumListCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
