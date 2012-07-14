@@ -2,6 +2,7 @@
 //  FGalleryPhoto.h
 //  FGallery
 //
+
 //  Created by Grant Davis on 5/20/10.
 //  Copyright 2011 Grant Davis Interactive, LLC. All rights reserved.
 //

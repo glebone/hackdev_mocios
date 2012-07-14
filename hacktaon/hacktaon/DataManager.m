@@ -132,7 +132,7 @@ static DataManager *_sharedManager = nil;
         [self setPhotosFeed:feed];
         
         NSLog(@"LINKS: \n %@", [self photoLinks]);
-        
+         [[NSNotificationCenter defaultCenter] postNotificationName:@"GlinksExtracted" object:self];        
         if ([entries count] > 0) {
 
         } else {

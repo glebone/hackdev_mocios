@@ -23,8 +23,9 @@
 
 @end
 
-@implementation AlbumListViewController
+@implementation AlbumListViewController 
 @synthesize albums = _albums;
+@synthesize localGallery, networkGallery, localCaptions, localImages, networkImages, networkCaptions;
 
 - (void)dealloc {
     [_tableView release];
@@ -35,8 +36,62 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+       [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onExtractedLinks:) name:@"GlinksExtracted" object:nil];
     [[DataManager sharedManager] getAlbumList];
 }
+
+
+- (int)numberOfPhotosForPhotoGallery:(FGalleryViewController *)gallery
+{
+    int num;
+    if( gallery == localGallery ) {
+        num = [localImages count];
+    }
+    else if( gallery == networkGallery ) {
+        num = [networkImages count];
+    }
+	return num;
+}
+
+
+- (FGalleryPhotoSourceType)photoGallery:(FGalleryViewController *)gallery sourceTypeForPhotoAtIndex:(NSUInteger)index
+{
+	if( gallery == localGallery ) {
+		return FGalleryPhotoSourceTypeLocal;
+	}
+	else return FGalleryPhotoSourceTypeNetwork;
+}
+
+
+- (NSString*)photoGallery:(FGalleryViewController *)gallery captionForPhotoAtIndex:(NSUInteger)index
+{
+    NSString *caption;
+    if( gallery == localGallery ) {
+        caption = [localCaptions objectAtIndex:index];
+    }
+    else if( gallery == networkGallery ) {
+        caption = [networkCaptions objectAtIndex:index];
+    }
+	return caption;
+}
+
+
+- (NSString*)photoGallery:(FGalleryViewController*)gallery filePathForPhotoSize:(FGalleryPhotoSize)size atIndex:(NSUInteger)index {
+    return [localImages objectAtIndex:index];
+}
+
+- (NSString*)photoGallery:(FGalleryViewController *)gallery urlForPhotoSize:(FGalleryPhotoSize)size atIndex:(NSUInteger)index {
+    return [networkImages objectAtIndex:index];
+}
+
+
+
+
+
+
+
+
+
 
 - (void)viewDidUnload
 {
@@ -157,6 +212,60 @@
 {
     NSString *d = [notification object];
     if (![d isKindOfClass:[NSString class]]) return;
+}
+
+
+- (void)handleTrashButtonTouch:(id)sender {
+    [self.localGallery endSession];
+    
+    NSLog(@"Stopped");
+}
+
+
+
+
+- (void) onExtractedLinks:(NSNotification *)n
+{
+    NSLog(@"Extracted links");
+    NSMutableArray *tmpImages = [[NSMutableArray alloc] initWithObjects:nil];
+    for (id curObj in [[DataManager sharedManager] photoLinks])
+    {
+        [tmpImages addObject:[NSString stringWithFormat:@"%@",curObj]];
+    }
+    NSLog(@"%@", tmpImages);
+    self.networkImages = [[NSArray alloc] initWithArray:tmpImages]; 
+    self.networkCaptions = [[DataManager sharedManager] photoLinks];
+    NSLog(@"%@", self.networkImages);
+
+    self.localCaptions = [[NSArray alloc] initWithObjects:@"Lava", @"Hawaii", @"Audi", @"Happy New Year!",@"Frosty Web",nil];
+    self.localImages = [[NSArray alloc] initWithObjects: @"lava.jpeg", @"hawaii.jpeg", @"audi.jpg",nil];
+   
+    [tmpImages release];
+    
+    self.networkCaptions = self.networkImages;
+    //self.networkImages = [[NSArray alloc] initWithObjects:@"https://lh3.googleusercontent.com/-rGXkEbSEJCk/Tto1pbCnX7I/AAAAAAAAA-w/eAo5neHNm1w/2011-12-03-203900.jpg", @"https://lh5.googleusercontent.com/-Pl6GVB4AMjE/Tto1t-wLFaI/AAAAAAAAA-M/4RpdZbdVMS0/2011-12-03-203942.jpg",nil];
+    
+    NSLog(@"%@", self.networkImages);
+   
+    
+    UIImage *trashIcon = [UIImage imageNamed:@"photo-gallery-trashcan.png"];
+    UIImage *captionIcon = [UIImage imageNamed:@"photo-gallery-edit-caption.png"];
+    UIBarButtonItem *trashButton = [[[UIBarButtonItem alloc] initWithImage:trashIcon style:UIBarButtonItemStylePlain target:self action:@selector(handleTrashButtonTouch:)] autorelease];
+    UIBarButtonItem *editCaptionButton = [[[UIBarButtonItem alloc] initWithImage:captionIcon style:UIBarButtonItemStylePlain target:self action:@selector(handleEditCaptionButtonTouch:)] autorelease];
+    NSArray *barItems = [NSArray arrayWithObjects:editCaptionButton, trashButton, nil];
+    
+
+    
+    
+    self.networkGallery = [[FGalleryViewController alloc] initWithPhotoSource:self barItems:barItems];
+    
+    
+    
+    
+    [self presentModalViewController:self.networkGallery animated:YES];
+
+    //[self.navigationController pushViewController:networkGallery animated:YES];
+    [networkGallery release]; 
 }
 
 @end
