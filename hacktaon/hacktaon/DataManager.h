@@ -18,6 +18,7 @@
 - (void)getAlbumList;
 - (void)getPhotosFromAlbumAtIndex:(int)index;
 - (NSMutableArray *)photoLinks;
+- (void)getThumbnails;
 
 @property(nonatomic, retain) GDataServiceGooglePhotos *service;
 @property(nonatomic, retain) GDataFeedPhotoUser *albumsFeed;

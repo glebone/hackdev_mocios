@@ -26,6 +26,7 @@ static DataManager *_sharedManager = nil;
     GDataServiceGooglePhotos *_service;
     GDataFeedPhotoUser                  *_albumsFeed;
     GDataFeedPhotoAlbum                 *_photosFeed;
+    NSMutableDictionary                 *_thumbnailDictionary;
 }
 
 @end
@@ -49,6 +50,7 @@ static DataManager *_sharedManager = nil;
     if (self) {
         self.service = [[GDataServiceGooglePhotos alloc] init];
         self.service.shouldCacheResponseData = YES;
+        _thumbnailDictionary = [[NSMutableDictionary alloc] init];
     }
     return self;
 }
@@ -57,6 +59,7 @@ static DataManager *_sharedManager = nil;
     [_service release];
     [_albumsFeed release];
     [_photosFeed release];
+    [_thumbnailDictionary release];
     [super dealloc];
 }
 
@@ -85,6 +88,7 @@ static DataManager *_sharedManager = nil;
     if (error == nil) {  
         NSArray *entries = [feed entries];
         [self setAlbumsFeed:feed];
+        [self getThumbnails];
         
         [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:NOTIFICATION_FETCH_ALBUM_LIST_SUCCESS object:[NSDictionary dictionaryWithObject:_albumsFeed forKey:ALBUMS_KEY]]];
         
@@ -155,4 +159,43 @@ static DataManager *_sharedManager = nil;
     }
     return links;
 }
+
+#pragma mark thumbnails downloader
+- (void)getThumbnails
+{
+    [_thumbnailDictionary removeAllObjects];
+    NSArray *albums = [_albumsFeed entries];
+    int albumsFeedCount = [albums count];
+    for (int i = 0; i < albumsFeedCount; i++) {
+        GDataEntryPhotoAlbum *album = [albums objectAtIndex:i];
+        NSArray *thumbnails = [[album mediaGroup] mediaThumbnails];
+        
+        if ([thumbnails count] <= 0) continue;
+        GDataMediaThumbnail *t = [thumbnails objectAtIndex:0];
+        
+        [NSThread detachNewThreadSelector:@selector(getThumbnailsOnSeparateThreadWithURLString:) 
+                                 toTarget:self 
+                               withObject:t.URLString];
+    }   
+    
+    
+}
+- (void)getThumbnailsOnSeparateThreadWithURLString:(NSString *)URLString
+{
+    @autoreleasepool {
+        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:URLString]];
+        NSURLResponse *response = nil;
+        NSError *error = nil;
+        NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        UIImage *img = [UIImage imageWithData:responseData];
+        if (img) {
+            //ok
+            [_thumbnailDictionary setObject:img forKey:URLString];
+            [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:NOTIFICATION_THUMBNAIL_UPDATE_SUCCESS object:[NSDictionary dictionaryWithObject:_thumbnailDictionary forKey:THUMBNAILS_KEY]]]; 
+        } else {
+            //error
+        }
+    }
+}
+
 @end

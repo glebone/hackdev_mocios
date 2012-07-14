@@ -19,6 +19,7 @@
 @interface AlbumListViewController ()
 {
     NSArray *_albums;
+    NSMutableDictionary *_thumbs;
 }
 
 @end
@@ -30,14 +31,16 @@
 - (void)dealloc {
     [_tableView release];
     [_albums release];
+    [_thumbs release];
     [super dealloc];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-       [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onExtractedLinks:) name:@"GlinksExtracted" object:nil];
-    [[DataManager sharedManager] getAlbumList];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateThumbnails:) name:NOTIFICATION_THUMBNAIL_UPDATE_SUCCESS object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onExtractedLinks:) name:@"GlinksExtracted" object:nil];
+//    [[DataManager sharedManager] getAlbumList];
 }
 
 
@@ -140,8 +143,12 @@
     
     NSString *title = [titleTextConstruct stringValue];
     cell.titleLabel.text = title;
-    cell.thumbnailImageView.image = [UIImage imageNamed:@"ScrapbookPhotos.jpeg"];
-    [cell setNeedsLayout];
+    
+    NSArray *thumbnails = [[album mediaGroup] mediaThumbnails];
+    if ([thumbnails count] <= 0) return cell;
+    GDataMediaThumbnail *t = [thumbnails objectAtIndex:0];
+    UIImage *img = [_thumbs objectForKey:t.URLString];
+    cell.thumbnailImageView.image = img;
     return cell;
 }
 
@@ -266,6 +273,18 @@
 
     //[self.navigationController pushViewController:networkGallery animated:YES];
     [networkGallery release]; 
+}
+
+- (void)updateThumbnails:(NSNotification *)notification
+{
+    NSDictionary *d = [notification object];
+    if (![d isKindOfClass:[NSDictionary class]]) return;
+    
+    NSMutableDictionary *thumbs = [d objectForKey:THUMBNAILS_KEY];
+    [_thumbs release];
+    _thumbs = [thumbs copy];
+    
+    [_tableView reloadData];
 }
 
 @end
