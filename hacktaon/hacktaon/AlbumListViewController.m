@@ -216,7 +216,7 @@
 
 
 - (void)handleTrashButtonTouch:(id)sender {
-    [self.localGallery endSession];
+    [self.networkGallery endSession];
     
     NSLog(@"Stopped");
 }
