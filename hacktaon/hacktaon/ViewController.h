@@ -13,6 +13,7 @@
     
     IBOutlet UITextField *_loginTextField;
     IBOutlet UITextField *_passwordTextField;
+    IBOutlet UIView      *_activityIndicatorView;
 }
 
 - (IBAction)getAlbumsTouchUpInside:(id)sender;

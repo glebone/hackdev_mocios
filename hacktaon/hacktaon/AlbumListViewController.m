@@ -34,16 +34,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(albumListFetchOk:) name:NOTIFICATION_FETCH_ALBUM_LIST_SUCCESS object:nil];
-    
     [[DataManager sharedManager] getAlbumList];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)viewDidUnload
@@ -151,6 +142,12 @@
     _albums = [[album entries] copy];
     
     [_tableView reloadData];
+}
+
+- (void)requestFailure:(NSNotification *)notification
+{
+    NSString *d = [notification object];
+    if (![d isKindOfClass:[NSString class]]) return;
 }
 
 @end

@@ -102,7 +102,7 @@ static DataManager *_sharedManager = nil;
             NSLog(@"No Albums");
         }
     } else {
-        NSLog(@"Error: %@", error);
+        [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:NOTIFICATION_REQUEST_ERROR object:[NSDictionary dictionaryWithObject:error forKey:ERROR_KEY]]];
     }
 }
 
@@ -120,9 +120,6 @@ static DataManager *_sharedManager = nil;
             ticket = [_service fetchFeedWithURL:feedURL
                                       delegate:self
                              didFinishSelector:@selector(photosTicket:finishedWithFeed:error:)];
-//            [self setPhotoFetchTicket:ticket];
-//            
-//            [self updateUI];
         }
     }
 }
@@ -142,7 +139,7 @@ static DataManager *_sharedManager = nil;
             NSLog(@"No Photos");
         }
     } else {
-        NSLog(@"Error: %@", error);
+        [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:NOTIFICATION_REQUEST_ERROR object:[NSDictionary dictionaryWithObject:error forKey:ERROR_KEY]]];    
     }
 }
 

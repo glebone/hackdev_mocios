@@ -45,7 +45,7 @@
                                     <action selector="getPhotosTouchUpInside:" destination="2" eventType="touchUpInside" id="jZD-uv-AFe"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Login" minimumFontSize="17" id="FSy-lH-ixj">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="dkann@ukr.net" borderStyle="roundedRect" placeholder="Login" minimumFontSize="17" id="FSy-lH-ixj">
                                 <rect key="frame" x="108" y="79" width="97" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -57,10 +57,27 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
+                            <view hidden="YES" contentMode="scaleToFill" id="AAm-d3-4se">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <view alpha="0.60000000000000009" contentMode="scaleToFill" id="86w-Gm-dKp">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    </view>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" animating="YES" style="whiteLarge" id="WeC-BI-iuy">
+                                        <rect key="frame" x="141" y="212" width="37" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="_activityIndicatorView" destination="AAm-d3-4se" id="tTs-9g-r2m"/>
                         <outlet property="_loginTextField" destination="FSy-lH-ixj" id="mzG-wG-6b5"/>
                         <outlet property="_passwordTextField" destination="ceV-dS-diG" id="eCp-VC-yay"/>
                         <segue destination="gzp-SS-WUO" kind="modal" identifier="showAlbumList" id="6oR-ss-ZHL"/>
@@ -72,7 +89,7 @@
         <scene sceneID="CYR-Ta-ND2">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zIz-ss-iBZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="gzp-SS-WUO" customClass="AlbumListViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AlbumListViewController" id="gzp-SS-WUO" customClass="AlbumListViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3Ow-Hv-ArR">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -120,6 +137,7 @@
             <relationships>
                 <relationship kind="action" name="getAlbumsTouchUpInside:"/>
                 <relationship kind="action" name="getPhotosTouchUpInside:"/>
+                <relationship kind="outlet" name="_activityIndicatorView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="_loginTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="_passwordTextField" candidateClass="UITextField"/>
             </relationships>
