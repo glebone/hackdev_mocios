@@ -15,6 +15,7 @@
 #import "GDataFeedPhoto.h"
 
 #import "AlbumListCell.h"
+#import "UploadViewController.h"
 
 @interface AlbumListViewController ()
 {
@@ -32,6 +33,7 @@
     [_tableView release];
     [_albums release];
     [_thumbs release];
+    [_activityIndicatorView release];
     [super dealloc];
 }
 
@@ -39,6 +41,7 @@
 {
     [super viewDidLoad];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateThumbnails:) name:NOTIFICATION_THUMBNAIL_UPDATE_SUCCESS object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(convertionEnded:) name:NOTIFICATION_CONVERTION_ENDED object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onExtractedLinks:) name:@"GlinksExtracted" object:nil];
 //    [[DataManager sharedManager] getAlbumList];
 }
@@ -100,6 +103,8 @@
 {
     [_tableView release];
     _tableView = nil;
+    [_activityIndicatorView release];
+    _activityIndicatorView = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -195,6 +200,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    _activityIndicatorView.hidden = NO;
     [[DataManager sharedManager] getPhotosFromAlbumAtIndex:indexPath.row];
 }
 
@@ -223,7 +229,11 @@
 
 
 - (void)handleTrashButtonTouch:(id)sender {
+    _activityIndicatorView.hidden = NO;
+    
     [self.networkGallery endSession];
+    //dissmiss modalViewController
+    //starting to convert caf to mp3
     
     NSLog(@"Stopped");
 }
@@ -233,6 +243,7 @@
 
 - (void) onExtractedLinks:(NSNotification *)n
 {
+    _activityIndicatorView.hidden = YES;
     NSLog(@"Extracted links");
     NSMutableArray *tmpImages = [[NSMutableArray alloc] initWithObjects:nil];
     for (id curObj in [[DataManager sharedManager] photoLinks])
@@ -285,6 +296,14 @@
     _thumbs = [thumbs copy];
     
     [_tableView reloadData];
+}
+
+- (void)convertionEnded:(NSNotification *)notification
+{
+    _activityIndicatorView.hidden = YES;
+    
+    UploadViewController *u = [[self storyboard] instantiateViewControllerWithIdentifier:@"UploadViewController"];
+    [self presentModalViewController:u animated:YES];
 }
 
 @end

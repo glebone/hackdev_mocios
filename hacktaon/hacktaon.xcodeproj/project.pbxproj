@@ -38,6 +38,7 @@
 		DA0C663D15B219040063D078 /* libGDataTouchStaticLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA0C663415B218AE0063D078 /* libGDataTouchStaticLib.a */; };
 		DA0C664015B21A810063D078 /* no_photo.png in Resources */ = {isa = PBXBuildFile; fileRef = DA0C663E15B21A810063D078 /* no_photo.png */; };
 		DA0C664115B21A810063D078 /* no_photo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA0C663F15B21A810063D078 /* no_photo@2x.png */; };
+		DA0C664415B2214F0063D078 /* UploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0C664315B2214F0063D078 /* UploadViewController.m */; };
 		DA916B0615B195E70071072C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA916B0515B195E70071072C /* Security.framework */; };
 		DA916B0815B195ED0071072C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA916B0715B195ED0071072C /* SystemConfiguration.framework */; };
 		DA916C4915B1B0670071072C /* AlbumListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA916C4815B1B0670071072C /* AlbumListViewController.m */; };
@@ -150,6 +151,8 @@
 		DA0C662515B218AD0063D078 /* GData.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GData.xcodeproj; path = "../../../../gdata-objectivec-client-read-only/Source/GData.xcodeproj"; sourceTree = "<group>"; };
 		DA0C663E15B21A810063D078 /* no_photo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = no_photo.png; sourceTree = "<group>"; };
 		DA0C663F15B21A810063D078 /* no_photo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "no_photo@2x.png"; sourceTree = "<group>"; };
+		DA0C664215B2214F0063D078 /* UploadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadViewController.h; sourceTree = "<group>"; };
+		DA0C664315B2214F0063D078 /* UploadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadViewController.m; sourceTree = "<group>"; };
 		DA916B0515B195E70071072C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		DA916B0715B195ED0071072C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		DA916B0A15B1976F0071072C /* GData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GData.h; sourceTree = "<group>"; };
@@ -638,6 +641,26 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		DA0C664515B221690063D078 /* AlbumListViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DA916C4715B1B0670071072C /* AlbumListViewController.h */,
+				DA916C4815B1B0670071072C /* AlbumListViewController.m */,
+				DA916C4D15B1DFF40071072C /* AlbumListCell.h */,
+				DA916C4E15B1DFF40071072C /* AlbumListCell.m */,
+			);
+			name = AlbumListViewController;
+			sourceTree = "<group>";
+		};
+		DA0C664615B221830063D078 /* UploadViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DA0C664215B2214F0063D078 /* UploadViewController.h */,
+				DA0C664315B2214F0063D078 /* UploadViewController.m */,
+			);
+			name = UploadViewController;
+			sourceTree = "<group>";
+		};
 		DA916B0915B1976F0071072C /* GData */ = {
 			isa = PBXGroup;
 			children = (
@@ -1016,10 +1039,8 @@
 				DAD0950F15B1823900E82ACC /* MainStoryboard.storyboard */,
 				DAD0951215B1823900E82ACC /* ViewController.h */,
 				DAD0951315B1823900E82ACC /* ViewController.m */,
-				DA916C4715B1B0670071072C /* AlbumListViewController.h */,
-				DA916C4815B1B0670071072C /* AlbumListViewController.m */,
-				DA916C4D15B1DFF40071072C /* AlbumListCell.h */,
-				DA916C4E15B1DFF40071072C /* AlbumListCell.m */,
+				DA0C664515B221690063D078 /* AlbumListViewController */,
+				DA0C664615B221830063D078 /* UploadViewController */,
 				DAD0950415B1823900E82ACC /* Supporting Files */,
 			);
 			path = hacktaon;
@@ -1184,6 +1205,7 @@
 				0CA8E59415B1FCE400DF0A19 /* ASIInputStream.m in Sources */,
 				0CA8E59515B1FCE400DF0A19 /* ASINetworkQueue.m in Sources */,
 				0CA8E59D15B1FD5100DF0A19 /* Reachability.m in Sources */,
+				DA0C664415B2214F0063D078 /* UploadViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
