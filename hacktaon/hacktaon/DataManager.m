@@ -48,7 +48,7 @@ static DataManager *_sharedManager = nil;
 {
     self = [super init];
     if (self) {
-        self.service = [[GDataServiceGooglePhotos alloc] init];
+        self.service = [[[GDataServiceGooglePhotos alloc] init] autorelease];
         self.service.shouldCacheResponseData = YES;
         _thumbnailDictionary = [[NSMutableDictionary alloc] init];
     }

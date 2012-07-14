@@ -49,10 +49,11 @@
 }
 
 - (IBAction)getAlbumsTouchUpInside:(id)sender {
-    [[DataManager sharedManager] setUserName:_loginTextField.text andPassword:_passwordTextField.text];
-//    [self performSegueWithIdentifier:@"showAlbumList" sender:self];
-    [[DataManager sharedManager] getAlbumList];
     _activityIndicatorView.hidden = NO;
+    
+    [[DataManager sharedManager] setUserName:_loginTextField.text andPassword:_passwordTextField.text];
+    [[DataManager sharedManager] getAlbumList];
+    
 }
 
 - (IBAction)getPhotosTouchUpInside:(id)sender {

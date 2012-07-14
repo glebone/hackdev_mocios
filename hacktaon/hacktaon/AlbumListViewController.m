@@ -153,6 +153,7 @@
     if ([thumbnails count] <= 0) return cell;
     GDataMediaThumbnail *t = [thumbnails objectAtIndex:0];
     UIImage *img = [_thumbs objectForKey:t.URLString];
+    if (!img) return cell;
     cell.thumbnailImageView.image = img;
     return cell;
 }
