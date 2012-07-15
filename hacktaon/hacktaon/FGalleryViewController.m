@@ -424,7 +424,7 @@
 	NSUInteger numberOfPhotos = [_photoSource numberOfPhotosForPhotoGallery:self];
 	NSUInteger nextIndex = _currentIndex+1;
     [self.curShowCase addSlideTickWithIndex:_currentIndex+1];
-    NSLog(@" ----  scrool done - %d", _currentIndex);
+    NSLog(@" ----  scrool done - %d", _currentIndex+1);
 
 	// don't continue if we're out of images.
 	if( nextIndex <= numberOfPhotos )
@@ -439,7 +439,7 @@
 {
 	NSUInteger prevIndex = _currentIndex-1;
     [self.curShowCase addSlideTickWithIndex:_currentIndex-1];
-    NSLog(@" ----  scrool done - %d", _currentIndex);
+    NSLog(@" ----  scrool done - %d", _currentIndex-1);
 
 	[self gotoImageByIndex:prevIndex animated:NO];
 }

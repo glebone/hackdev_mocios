@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0C128C4515B2438600A1D244 /* libGDataTouchStaticLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C128C3C15B2436000A1D244 /* libGDataTouchStaticLib.a */; };
+		0C128C4815B2503F00A1D244 /* quest_del.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C128C4615B2503F00A1D244 /* quest_del.png */; };
+		0C128C4915B2503F00A1D244 /* quest_del@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C128C4715B2503F00A1D244 /* quest_del@2x.png */; };
 		0CA8E53C15B1FBF700DF0A19 /* photo-gallery-edit-caption.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CA8E53615B1FBF700DF0A19 /* photo-gallery-edit-caption.png */; };
 		0CA8E53D15B1FBF700DF0A19 /* photo-gallery-left.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CA8E53715B1FBF700DF0A19 /* photo-gallery-left.png */; };
 		0CA8E53E15B1FBF700DF0A19 /* photo-gallery-left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CA8E53815B1FBF700DF0A19 /* photo-gallery-left@2x.png */; };
@@ -104,6 +106,8 @@
 /* Begin PBXFileReference section */
 		0C128C2B15B22D9F00A1D244 /* Global.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
 		0C128C2D15B2435F00A1D244 /* GData.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GData.xcodeproj; path = ../../../../Downloads/Source/GData.xcodeproj; sourceTree = "<group>"; };
+		0C128C4615B2503F00A1D244 /* quest_del.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = quest_del.png; sourceTree = "<group>"; };
+		0C128C4715B2503F00A1D244 /* quest_del@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "quest_del@2x.png"; sourceTree = "<group>"; };
 		0CA8E53615B1FBF700DF0A19 /* photo-gallery-edit-caption.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo-gallery-edit-caption.png"; sourceTree = "<group>"; };
 		0CA8E53715B1FBF700DF0A19 /* photo-gallery-left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo-gallery-left.png"; sourceTree = "<group>"; };
 		0CA8E53815B1FBF700DF0A19 /* photo-gallery-left@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo-gallery-left@2x.png"; sourceTree = "<group>"; };
@@ -546,6 +550,8 @@
 		0CA8E52815B1F9DC00DF0A19 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0C128C4615B2503F00A1D244 /* quest_del.png */,
+				0C128C4715B2503F00A1D244 /* quest_del@2x.png */,
 				0CA8E53615B1FBF700DF0A19 /* photo-gallery-edit-caption.png */,
 				0CA8E53715B1FBF700DF0A19 /* photo-gallery-left.png */,
 				0CA8E53815B1FBF700DF0A19 /* photo-gallery-left@2x.png */,
@@ -1177,6 +1183,8 @@
 				0CA8E59C15B1FD5100DF0A19 /* README-GHUnit in Resources */,
 				DA0C664015B21A810063D078 /* no_photo.png in Resources */,
 				DA0C664115B21A810063D078 /* no_photo@2x.png in Resources */,
+				0C128C4815B2503F00A1D244 /* quest_del.png in Resources */,
+				0C128C4915B2503F00A1D244 /* quest_del@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

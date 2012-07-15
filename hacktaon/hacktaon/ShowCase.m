@@ -59,7 +59,7 @@
     self.presentcastReady = @"1";
     [audioRecorder stop];
     [audioRecorder release];
-    [self playAudio];
+    //[self playAudio];
     [self getConvertedAudioFilePath];
     
 }
@@ -318,8 +318,8 @@
     NSLog(@"Coverting  Ready!!!! ");
     //notification about upload possibility and conversion
     [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:NOTIFICATION_CONVERTION_ENDED object:nil]];
-    [self generateResultJSON];   
-    [self uploadMedia];
+    //[self generateResultJSON];   
+    //[self uploadMedia];
  
 }
 

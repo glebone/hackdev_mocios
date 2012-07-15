@@ -235,7 +235,7 @@
     [self.networkGallery endSession];
     //dissmiss modalViewController
     //starting to convert caf to mp3
-    
+    [self dismissModalViewControllerAnimated:YES];
     NSLog(@"Stopped");
 }
 
@@ -268,11 +268,9 @@
     NSLog(@"%@", self.networkImages);
    
     
-    UIImage *trashIcon = [UIImage imageNamed:@"photo-gallery-trashcan.png"];
-    UIImage *captionIcon = [UIImage imageNamed:@"photo-gallery-edit-caption.png"];
+    UIImage *trashIcon = [UIImage imageNamed:@"quest_del.png"];
     UIBarButtonItem *trashButton = [[[UIBarButtonItem alloc] initWithImage:trashIcon style:UIBarButtonItemStylePlain target:self action:@selector(handleTrashButtonTouch:)] autorelease];
-    UIBarButtonItem *editCaptionButton = [[[UIBarButtonItem alloc] initWithImage:captionIcon style:UIBarButtonItemStylePlain target:self action:@selector(handleEditCaptionButtonTouch:)] autorelease];
-    NSArray *barItems = [NSArray arrayWithObjects:editCaptionButton, trashButton, nil];
+    NSArray *barItems = [NSArray arrayWithObjects: trashButton, nil];
     
 
     
@@ -305,6 +303,7 @@
     _activityIndicatorView.hidden = YES;
     
     UploadViewController *u = [[self storyboard] instantiateViewControllerWithIdentifier:@"UploadViewController"];
+    u.curShowCase = self.networkGallery.curShowCase;
     [self presentModalViewController:u animated:YES];
 }
 

@@ -15,6 +15,8 @@
 
 @implementation UploadViewController
 
+@synthesize curShowCase;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -47,6 +49,8 @@
 }
 
 - (IBAction)uploadTouchUpInside:(id)sender {
+    NSLog(@"Uploading...");
+    [self.curShowCase uploadMedia];
 }
 
 - (IBAction)dissmissTouchUpInside:(id)sender {
