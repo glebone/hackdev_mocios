@@ -11,6 +11,7 @@
 #import "SBJSON.h"
 #import "ASIHTTPRequest.h"
 #import "ExtAudioFileConvertUtil.h"
+#import "ASIFormDataRequest.h"
 
 
 @interface ShowCase : NSObject <AVAudioPlayerDelegate, AVAudioRecorderDelegate, ASIProgressDelegate>
@@ -75,6 +76,7 @@
 - (NSString *) getReadyConvertedAudioFilePath;
 - (NSString *) generateResultJSON;
 - (void) uploadMedia;
+- (void) uploadFailed;
 
 
 @end

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C128C4515B2438600A1D244 /* libGDataTouchStaticLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C128C3C15B2436000A1D244 /* libGDataTouchStaticLib.a */; };
 		0CA8E53C15B1FBF700DF0A19 /* photo-gallery-edit-caption.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CA8E53615B1FBF700DF0A19 /* photo-gallery-edit-caption.png */; };
 		0CA8E53D15B1FBF700DF0A19 /* photo-gallery-left.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CA8E53715B1FBF700DF0A19 /* photo-gallery-left.png */; };
 		0CA8E53E15B1FBF700DF0A19 /* photo-gallery-left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CA8E53815B1FBF700DF0A19 /* photo-gallery-left@2x.png */; };
@@ -35,7 +36,6 @@
 		0CA8E5A715B1FD9500DF0A19 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CA8E5A615B1FD9500DF0A19 /* CFNetwork.framework */; };
 		0CA8E5A915B1FDC200DF0A19 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CA8E5A815B1FDC200DF0A19 /* MobileCoreServices.framework */; };
 		0CA8E5AB15B1FDCA00DF0A19 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CA8E5AA15B1FDCA00DF0A19 /* QuartzCore.framework */; };
-		DA0C663D15B219040063D078 /* libGDataTouchStaticLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA0C663415B218AE0063D078 /* libGDataTouchStaticLib.a */; };
 		DA0C664015B21A810063D078 /* no_photo.png in Resources */ = {isa = PBXBuildFile; fileRef = DA0C663E15B21A810063D078 /* no_photo.png */; };
 		DA0C664115B21A810063D078 /* no_photo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA0C663F15B21A810063D078 /* no_photo@2x.png */; };
 		DA0C664415B2214F0063D078 /* UploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0C664315B2214F0063D078 /* UploadViewController.m */; };
@@ -57,44 +57,44 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		DA0C663115B218AE0063D078 /* PBXContainerItemProxy */ = {
+		0C128C3915B2436000A1D244 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = DA0C662515B218AD0063D078 /* GData.xcodeproj */;
+			containerPortal = 0C128C2D15B2435F00A1D244 /* GData.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 4F38F6A60B66E91D00B24B81;
 			remoteInfo = GDataFramework;
 		};
-		DA0C663315B218AE0063D078 /* PBXContainerItemProxy */ = {
+		0C128C3B15B2436000A1D244 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = DA0C662515B218AD0063D078 /* GData.xcodeproj */;
+			containerPortal = 0C128C2D15B2435F00A1D244 /* GData.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 4F1C6E0F1027B3CE00B46459;
 			remoteInfo = GDataTouchStaticLib;
 		};
-		DA0C663515B218AE0063D078 /* PBXContainerItemProxy */ = {
+		0C128C3D15B2436000A1D244 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = DA0C662515B218AD0063D078 /* GData.xcodeproj */;
+			containerPortal = 0C128C2D15B2435F00A1D244 /* GData.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 4F14A9DD0B1276B70072EBB8;
 			remoteInfo = GDataUnitTests;
 		};
-		DA0C663715B218AE0063D078 /* PBXContainerItemProxy */ = {
+		0C128C3F15B2436000A1D244 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = DA0C662515B218AD0063D078 /* GData.xcodeproj */;
+			containerPortal = 0C128C2D15B2435F00A1D244 /* GData.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 4F85E018103B83B700B4C418;
 			remoteInfo = GDataIPhoneUnitTests;
 		};
-		DA0C663915B218AE0063D078 /* PBXContainerItemProxy */ = {
+		0C128C4115B2436000A1D244 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = DA0C662515B218AD0063D078 /* GData.xcodeproj */;
+			containerPortal = 0C128C2D15B2435F00A1D244 /* GData.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 4F1AD9020B71603F00DC0485;
 			remoteInfo = DevelopmentTestTool;
 		};
-		DA0C663B15B218CD0063D078 /* PBXContainerItemProxy */ = {
+		0C128C4315B2437F00A1D244 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = DA0C662515B218AD0063D078 /* GData.xcodeproj */;
+			containerPortal = 0C128C2D15B2435F00A1D244 /* GData.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = 4F1C6E0E1027B3CE00B46459;
 			remoteInfo = GDataTouchStaticLib;
@@ -102,6 +102,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C128C2B15B22D9F00A1D244 /* Global.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
+		0C128C2D15B2435F00A1D244 /* GData.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GData.xcodeproj; path = ../../../../Downloads/Source/GData.xcodeproj; sourceTree = "<group>"; };
 		0CA8E53615B1FBF700DF0A19 /* photo-gallery-edit-caption.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo-gallery-edit-caption.png"; sourceTree = "<group>"; };
 		0CA8E53715B1FBF700DF0A19 /* photo-gallery-left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo-gallery-left.png"; sourceTree = "<group>"; };
 		0CA8E53815B1FBF700DF0A19 /* photo-gallery-left@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo-gallery-left@2x.png"; sourceTree = "<group>"; };
@@ -148,7 +150,6 @@
 		0CA8E5A615B1FD9500DF0A19 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		0CA8E5A815B1FDC200DF0A19 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		0CA8E5AA15B1FDCA00DF0A19 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		DA0C662515B218AD0063D078 /* GData.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GData.xcodeproj; path = "../../../../gdata-objectivec-client-read-only/Source/GData.xcodeproj"; sourceTree = "<group>"; };
 		DA0C663E15B21A810063D078 /* no_photo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = no_photo.png; sourceTree = "<group>"; };
 		DA0C663F15B21A810063D078 /* no_photo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "no_photo@2x.png"; sourceTree = "<group>"; };
 		DA0C664215B2214F0063D078 /* UploadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadViewController.h; sourceTree = "<group>"; };
@@ -501,7 +502,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA0C663D15B219040063D078 /* libGDataTouchStaticLib.a in Frameworks */,
+				0C128C4515B2438600A1D244 /* libGDataTouchStaticLib.a in Frameworks */,
 				0CA8E5AB15B1FDCA00DF0A19 /* QuartzCore.framework in Frameworks */,
 				0CA8E5A915B1FDC200DF0A19 /* MobileCoreServices.framework in Frameworks */,
 				0CA8E5A115B1FD7300DF0A19 /* AVFoundation.framework in Frameworks */,
@@ -521,6 +522,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C128C2E15B2435F00A1D244 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0C128C3A15B2436000A1D244 /* GData.framework */,
+				0C128C3C15B2436000A1D244 /* libGDataTouchStaticLib.a */,
+				0C128C3E15B2436000A1D244 /* GDataUnitTests.octest */,
+				0C128C4015B2436000A1D244 /* GDataIPhoneUnitTests.octest */,
+				0C128C4215B2436000A1D244 /* DevelopmentTestTool */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		0CA8E52715B1F9D200DF0A19 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -560,8 +573,8 @@
 				0CA8E57215B1FCC800DF0A19 /* FGalleryPhoto.m */,
 				0CA8E57315B1FCC800DF0A19 /* FGalleryPhotoView.h */,
 				0CA8E57415B1FCC800DF0A19 /* FGalleryPhotoView.m */,
-				0CA8E57515B1FCC800DF0A19 /* FGalleryViewController.h */,
 				0CA8E57615B1FCC800DF0A19 /* FGalleryViewController.m */,
+				0CA8E57515B1FCC800DF0A19 /* FGalleryViewController.h */,
 			);
 			name = FGGallery;
 			sourceTree = "<group>";
@@ -627,18 +640,6 @@
 				0CA8E59B15B1FD5100DF0A19 /* Reachability.m */,
 			);
 			path = Reachability;
-			sourceTree = "<group>";
-		};
-		DA0C662615B218AD0063D078 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				DA0C663215B218AE0063D078 /* GData.framework */,
-				DA0C663415B218AE0063D078 /* libGDataTouchStaticLib.a */,
-				DA0C663615B218AE0063D078 /* GDataUnitTests.octest */,
-				DA0C663815B218AE0063D078 /* GDataIPhoneUnitTests.octest */,
-				DA0C663A15B218AE0063D078 /* DevelopmentTestTool */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		DA0C664515B221690063D078 /* AlbumListViewController */ = {
@@ -1006,6 +1007,7 @@
 		DAD094FC15B1823900E82ACC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0C128C2D15B2435F00A1D244 /* GData.xcodeproj */,
 				0CA8E5AA15B1FDCA00DF0A19 /* QuartzCore.framework */,
 				0CA8E5A815B1FDC200DF0A19 /* MobileCoreServices.framework */,
 				0CA8E5A615B1FD9500DF0A19 /* CFNetwork.framework */,
@@ -1013,7 +1015,6 @@
 				0CA8E5A215B1FD7B00DF0A19 /* CoreAudio.framework */,
 				0CA8E5A015B1FD7200DF0A19 /* AVFoundation.framework */,
 				0CA8E59E15B1FD6B00DF0A19 /* libz.dylib */,
-				DA0C662515B218AD0063D078 /* GData.xcodeproj */,
 				DA916B0715B195ED0071072C /* SystemConfiguration.framework */,
 				DA916B0515B195E70071072C /* Security.framework */,
 				DAFD79A315B187D100AF3012 /* CoreData.framework */,
@@ -1055,6 +1056,7 @@
 				DAD0950615B1823900E82ACC /* InfoPlist.strings */,
 				DAD0950915B1823900E82ACC /* main.m */,
 				DAD0950B15B1823900E82ACC /* hacktaon-Prefix.pch */,
+				0C128C2B15B22D9F00A1D244 /* Global.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -1082,7 +1084,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				DA0C663C15B218CD0063D078 /* PBXTargetDependency */,
+				0C128C4415B2437F00A1D244 /* PBXTargetDependency */,
 			);
 			name = hacktaon;
 			productName = hacktaon;
@@ -1109,8 +1111,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = DA0C662615B218AD0063D078 /* Products */;
-					ProjectRef = DA0C662515B218AD0063D078 /* GData.xcodeproj */;
+					ProductGroup = 0C128C2E15B2435F00A1D244 /* Products */;
+					ProjectRef = 0C128C2D15B2435F00A1D244 /* GData.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -1121,39 +1123,39 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		DA0C663215B218AE0063D078 /* GData.framework */ = {
+		0C128C3A15B2436000A1D244 /* GData.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = GData.framework;
-			remoteRef = DA0C663115B218AE0063D078 /* PBXContainerItemProxy */;
+			remoteRef = 0C128C3915B2436000A1D244 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		DA0C663415B218AE0063D078 /* libGDataTouchStaticLib.a */ = {
+		0C128C3C15B2436000A1D244 /* libGDataTouchStaticLib.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libGDataTouchStaticLib.a;
-			remoteRef = DA0C663315B218AE0063D078 /* PBXContainerItemProxy */;
+			remoteRef = 0C128C3B15B2436000A1D244 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		DA0C663615B218AE0063D078 /* GDataUnitTests.octest */ = {
+		0C128C3E15B2436000A1D244 /* GDataUnitTests.octest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = GDataUnitTests.octest;
-			remoteRef = DA0C663515B218AE0063D078 /* PBXContainerItemProxy */;
+			remoteRef = 0C128C3D15B2436000A1D244 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		DA0C663815B218AE0063D078 /* GDataIPhoneUnitTests.octest */ = {
+		0C128C4015B2436000A1D244 /* GDataIPhoneUnitTests.octest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = GDataIPhoneUnitTests.octest;
-			remoteRef = DA0C663715B218AE0063D078 /* PBXContainerItemProxy */;
+			remoteRef = 0C128C3F15B2436000A1D244 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		DA0C663A15B218AE0063D078 /* DevelopmentTestTool */ = {
+		0C128C4215B2436000A1D244 /* DevelopmentTestTool */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.executable";
 			path = DevelopmentTestTool;
-			remoteRef = DA0C663915B218AE0063D078 /* PBXContainerItemProxy */;
+			remoteRef = 0C128C4115B2436000A1D244 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -1212,10 +1214,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		DA0C663C15B218CD0063D078 /* PBXTargetDependency */ = {
+		0C128C4415B2437F00A1D244 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = GDataTouchStaticLib;
-			targetProxy = DA0C663B15B218CD0063D078 /* PBXContainerItemProxy */;
+			targetProxy = 0C128C4315B2437F00A1D244 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

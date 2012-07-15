@@ -424,7 +424,8 @@
 	NSUInteger numberOfPhotos = [_photoSource numberOfPhotosForPhotoGallery:self];
 	NSUInteger nextIndex = _currentIndex+1;
     [self.curShowCase addSlideTickWithIndex:_currentIndex+1];
-	
+    NSLog(@" ----  scrool done - %d", _currentIndex);
+
 	// don't continue if we're out of images.
 	if( nextIndex <= numberOfPhotos )
 	{
@@ -438,6 +439,8 @@
 {
 	NSUInteger prevIndex = _currentIndex-1;
     [self.curShowCase addSlideTickWithIndex:_currentIndex-1];
+    NSLog(@" ----  scrool done - %d", _currentIndex);
+
 	[self gotoImageByIndex:prevIndex animated:NO];
 }
 
@@ -732,7 +735,7 @@
 
 - (void)moveScrollerToCurrentIndexWithAnimation:(BOOL)animation
 {
-	int xp = _scroller.frame.size.width * _currentIndex;
+  	int xp = _scroller.frame.size.width * _currentIndex;
 	[_scroller scrollRectToVisible:CGRectMake(xp, 0, _scroller.frame.size.width, _scroller.frame.size.height) animated:animation];
 	_isScrolling = animation;
 }
@@ -1030,8 +1033,10 @@
 	
 	// clear previous
 	[self unloadFullsizeImageWithIndex:_currentIndex];
-	
+
 	_currentIndex = newIndex;
+      [self.curShowCase addSlideTickWithIndex:_currentIndex];
+    	NSLog(@" ----  scrool done - %d", _currentIndex);
 	[self updateCaption];
 	[self updateTitle];
 	[self updateButtons];

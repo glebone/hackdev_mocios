@@ -45,7 +45,7 @@
                                     <action selector="getPhotosTouchUpInside:" destination="2" eventType="touchUpInside" id="jZD-uv-AFe"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="dkann@ukr.net" borderStyle="roundedRect" placeholder="Login" minimumFontSize="17" id="FSy-lH-ixj">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="glebone@gmail.com" borderStyle="roundedRect" placeholder="Login" minimumFontSize="17" id="FSy-lH-ixj">
                                 <rect key="frame" x="108" y="79" width="97" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -236,6 +236,41 @@
     <resources>
         <image name="no_photo.png" width="60" height="60"/>
     </resources>
+    <classes>
+        <class className="AlbumListCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AlbumListCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="descriptionLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="thumbnailImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="AlbumListViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AlbumListViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="_activityIndicatorView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="_tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="UploadViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UploadViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="dissmissTouchUpInside:"/>
+                <relationship kind="action" name="uploadTouchUpInside:"/>
+                <relationship kind="outlet" name="_activityIndicatorView" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="getAlbumsTouchUpInside:"/>
+                <relationship kind="action" name="getPhotosTouchUpInside:"/>
+                <relationship kind="outlet" name="_activityIndicatorView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="_loginTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="_passwordTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

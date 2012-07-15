@@ -319,25 +319,22 @@
     //notification about upload possibility and conversion
     [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:NOTIFICATION_CONVERTION_ENDED object:nil]];
     [self generateResultJSON];   
+    [self uploadMedia];
  
 }
 
 
 - (NSString *) generateResultJSON
 {
-    NSMutableString *imgUrlsString  = [[NSMutableString alloc] init];
-    for (NSString *curUrl in self.imgUrls)
-    {
-        [imgUrlsString appendString:curUrl];
-    }
+    SBJsonWriter *writer = [[[SBJsonWriter alloc] init] autorelease];
+    
     NSDictionary *tmpVals = [[[NSDictionary alloc] initWithObjectsAndKeys:self.albumID, @"album_id", 
                                                                          self.albumID, @"album_name",
-                                                                         imgUrlsString, @"photos_data",
+                                                                         [writer stringWithObject:self.imgUrls], @"photos_data",
                                           	                             [self getResultString], @"switches_data",
                                                                          nil] autorelease];  
-    [imgUrlsString release];
     
-    SBJsonWriter *writer = [[[SBJsonWriter alloc] init] autorelease];
+    
     
     
     NSLog(@"%@", [writer stringWithObject:tmpVals]);
@@ -347,7 +344,31 @@
 
 - (void) uploadMedia
 {
+    ASIFormDataRequest *prequest = [[[ASIFormDataRequest alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/api/stories.json",SERVER_URL]]] autorelease];
     
+    // NSLog(@"%@", prequest.url);
+    
+    [prequest setPostValue:@"post" forKey:@"_method"];
+    [prequest setPostValue:[self generateResultJSON] forKey:@"data"];
+    [prequest setFile:[self getReadyConvertedAudioFilePath] forKey:@"file"];
+    
+    //[prequest setShouldUseRFC2616RedirectBehaviour:YES];
+    
+    
+    [prequest setRequestMethod:@"POST"];
+    
+    [prequest setCompletionBlock:^{[[NSNotificationCenter defaultCenter] postNotificationName:@"dataUploaded" object:self];}];
+    [prequest setTimeOutSeconds:30];
+    [prequest setShouldContinueWhenAppEntersBackground:YES];
+    [prequest setDidFailSelector:@selector(uploadFailed)];
+    [prequest setDelegate:self];
+    [prequest startAsynchronous];
+
+}
+
+- (void) uploadFailed
+{
+    NSLog(@"upload Failed");
 }
 
 
