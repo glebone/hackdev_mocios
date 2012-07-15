@@ -343,11 +343,38 @@
     
     NSLog(@"");
     
+    NSMutableArray *urls = [NSMutableArray arrayWithArray:self.imgUrls];
+    for (int i = 0; i < urls.count; i++) {
+        NSString *urlString = [urls objectAtIndex:i];
+        NSMutableArray *urlParticles = [NSMutableArray arrayWithArray:[urlString componentsSeparatedByString:@"/"]];
+        if(urlParticles.count > 0)
+        {
+            NSString *fileName = [urlParticles lastObject];
+            fileName = [@"s1280/" stringByAppendingString:fileName];
+            [urlParticles removeObject:[urlParticles lastObject]];
+            [urlParticles addObject:fileName];
+            
+            NSString *newUrlString = [NSString string];
+            
+            for (NSString *particle in urlParticles) {
+                if (newUrlString.length > 0) {
+                    newUrlString = [newUrlString stringByAppendingFormat:@"/%@", particle];
+                } else {
+                    newUrlString = [newUrlString stringByAppendingFormat:@"%@", particle];
+                }
+                
+            }
+            [urls replaceObjectAtIndex:i withObject:newUrlString];
+            
+            NSLog(@"%@", newUrlString);
+        }
+    }
+    
     NSDictionary *tmpVals = [[[NSDictionary alloc] initWithObjectsAndKeys:self.albumID, @"album_id", 
-                                                                         self.albumName, @"album_name",
-                                                                         [writer stringWithObject:self.imgUrls], @"photos_data",
-                                          	                             [self getResultString], @"switches_data",
-                                                                         nil] autorelease];  
+                              self.albumName, @"album_name",
+                              [writer stringWithObject:urls], @"photos_data",
+                              [self getResultString], @"switches_data",
+                              nil] autorelease];
     
     
     
