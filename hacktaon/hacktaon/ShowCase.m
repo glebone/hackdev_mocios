@@ -1,4 +1,4 @@
-//
+    //
 //  ShowCase.m
 //  conficane_test
 //
@@ -60,6 +60,9 @@
     self.presentcastReady = @"1";
     [audioRecorder stop];
     [audioRecorder release];
+    
+    [[AVAudioSession sharedInstance] setActive: NO error: nil];
+    
     //[self playAudio];
     [self getConvertedAudioFilePath];
     
@@ -217,6 +220,15 @@
 
 - (void) prepareRecording
 {
+    
+    AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+    [audioSession setActive: YES error: nil];   
+    
+    [[AVAudioSession sharedInstance]
+     setCategory: AVAudioSessionCategoryRecord
+     error: nil];
+    
+    
     NSLog(@"###################################### %@", [self getPathForRecording]);
     
     NSURL *soundFileURL = [NSURL fileURLWithPath:[self getPathForRecording]];
@@ -329,6 +341,8 @@
 {
     SBJsonWriter *writer = [[[SBJsonWriter alloc] init] autorelease];
     
+    NSLog(@"");
+    
     NSDictionary *tmpVals = [[[NSDictionary alloc] initWithObjectsAndKeys:self.albumID, @"album_id", 
                                                                          self.albumName, @"album_name",
                                                                          [writer stringWithObject:self.imgUrls], @"photos_data",
@@ -351,7 +365,7 @@
     
     [prequest setPostValue:@"post" forKey:@"_method"];
     [prequest setPostValue:[self generateResultJSON] forKey:@"data"];
-    [prequest setFile:[self getReadyConvertedAudioFilePath] forKey:@"file"];
+    [prequest setFile:[self getPathForRecording] forKey:@"file"];
     
     //[prequest setShouldUseRFC2616RedirectBehaviour:YES];
     

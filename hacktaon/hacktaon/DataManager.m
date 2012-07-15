@@ -154,7 +154,11 @@ static DataManager *_sharedManager = nil;
     int photosCount = [photos count];
     for (int i = 0; i < photosCount; i++) {
         GDataEntryPhoto *photo = [photos objectAtIndex:i];
+        
+        NSLog(@" photo - %@", photo);
+        
         GDataEntryContent *c = [photo content];
+        
         [links addObject:c.sourceURL];
     }
     return links;
