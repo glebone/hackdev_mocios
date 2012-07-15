@@ -108,6 +108,7 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+    
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -138,6 +139,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+   
     static NSString *CellIdentifier = @"albumCellIdentifier";
     AlbumListCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
@@ -301,10 +303,17 @@
 - (void)convertionEnded:(NSNotification *)notification
 {
     _activityIndicatorView.hidden = YES;
+    NSLog(@"There!!");
     
-    UploadViewController *u = [[self storyboard] instantiateViewControllerWithIdentifier:@"UploadViewController"];
-    u.curShowCase = self.networkGallery.curShowCase;
-    [self presentModalViewController:u animated:YES];
+    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Cool Story, Bro!"
+                                                      message:@"Was successfully uploaded to server" 
+                                                     delegate:nil
+                                            cancelButtonTitle:@"OK"
+                                            otherButtonTitles:nil];
+    [message show];
+    [message release];
+  
 }
+
 
 @end

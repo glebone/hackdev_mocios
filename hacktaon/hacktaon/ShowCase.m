@@ -319,7 +319,7 @@
     //notification about upload possibility and conversion
     [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:NOTIFICATION_CONVERTION_ENDED object:nil]];
     //[self generateResultJSON];   
-    //[self uploadMedia];
+    [self uploadMedia];
  
 }
 

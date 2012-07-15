@@ -189,13 +189,18 @@ static DataManager *_sharedManager = nil;
         NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
         UIImage *img = [UIImage imageWithData:responseData];
         if (img) {
-            //ok
-            [_thumbnailDictionary setObject:img forKey:URLString];
-            [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:NOTIFICATION_THUMBNAIL_UPDATE_SUCCESS object:[NSDictionary dictionaryWithObject:_thumbnailDictionary forKey:THUMBNAILS_KEY]]]; 
+        //ok
+        [_thumbnailDictionary setObject:img forKey:URLString];
         } else {
-            //error
+        //error
+        [_thumbnailDictionary setObject:[NSNull null] forKey:URLString];
+        }
+        NSArray *albums = [_albumsFeed entries];
+        int albumsFeedCount = [albums count];
+        if (albumsFeedCount == [_thumbnailDictionary count]) {
+            [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:NOTIFICATION_THUMBNAIL_UPDATE_SUCCESS object:[NSDictionary dictionaryWithObject:_thumbnailDictionary forKey:THUMBNAILS_KEY]]]; 
+            }
         }
     }
-}
 
 @end

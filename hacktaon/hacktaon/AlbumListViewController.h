@@ -38,5 +38,6 @@
 
 - (void) onExtractedLinks:(NSNotification *)n;
 - (void)handleTrashButtonTouch:(id)sender;
+- (void) cropAlbums;
 
 @end
