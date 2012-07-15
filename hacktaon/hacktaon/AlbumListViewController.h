@@ -23,6 +23,8 @@
 	FGalleryViewController *localGallery;
     FGalleryViewController *networkGallery;
     IBOutlet UIView *_activityIndicatorView;
+    NSString *curAlbumId;
+    NSString *curAlbumName;
 }
 
 
@@ -34,6 +36,9 @@
 
 @property (nonatomic, retain) FGalleryViewController *localGallery;
 @property (nonatomic, retain) FGalleryViewController *networkGallery;
+
+@property (nonatomic, retain) NSString *curAlbumId;
+@property (nonatomic, retain) NSString *curAlbumName;
 
 
 - (void) onExtractedLinks:(NSNotification *)n;

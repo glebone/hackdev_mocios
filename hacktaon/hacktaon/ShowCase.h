@@ -21,6 +21,7 @@
     AVAudioPlayer *audioPlayer;
     NSString *fileStamp;
     NSString *albumID;
+    NSString *albumName;
     NSArray  *imgUrls;
 
     
@@ -32,6 +33,7 @@
 @property (nonatomic, retain) NSString * presentcastReady;
 @property (nonatomic, retain) NSString * fileStamp;
 @property (nonatomic, retain) NSString *albumID;
+@property (nonatomic, retain) NSString *albumName;
 @property (nonatomic, retain) NSArray *imgUrls;
 
 

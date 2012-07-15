@@ -20,6 +20,7 @@
 @synthesize fileStamp;
 @synthesize imgUrls;
 @synthesize albumID;
+@synthesize albumName;
 
 
 
@@ -329,7 +330,7 @@
     SBJsonWriter *writer = [[[SBJsonWriter alloc] init] autorelease];
     
     NSDictionary *tmpVals = [[[NSDictionary alloc] initWithObjectsAndKeys:self.albumID, @"album_id", 
-                                                                         self.albumID, @"album_name",
+                                                                         self.albumName, @"album_name",
                                                                          [writer stringWithObject:self.imgUrls], @"photos_data",
                                           	                             [self getResultString], @"switches_data",
                                                                          nil] autorelease];  

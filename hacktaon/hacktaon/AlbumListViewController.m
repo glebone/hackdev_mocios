@@ -28,6 +28,7 @@
 @implementation AlbumListViewController 
 @synthesize albums = _albums;
 @synthesize localGallery, networkGallery, localCaptions, localImages, networkImages, networkCaptions;
+@synthesize curAlbumId, curAlbumName;
 
 - (void)dealloc {
     [_tableView release];
@@ -144,12 +145,16 @@
     AlbumListCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     GDataEntryPhotoAlbum *album = [_albums objectAtIndex:indexPath.row];
+    
+    self.curAlbumId = album.GPhotoID;
+    
     GDataTextConstruct *titleTextConstruct = [album title];
     GDataMediaDescription *description = [[album mediaGroup] mediaDescription];
     cell.descriptionLabel.text = [description contentStringValue];
     
     NSString *title = [titleTextConstruct stringValue];
     cell.titleLabel.text = title;
+    self.curAlbumName = title;
     
     NSArray *thumbnails = [[album mediaGroup] mediaThumbnails];
     if ([thumbnails count] <= 0) return cell;
@@ -280,7 +285,9 @@
     self.networkGallery = [[FGalleryViewController alloc] initWithPhotoSource:self barItems:barItems];
     
     self.networkGallery.curShowCase.imgUrls = self.networkImages;
-    self.networkGallery.curShowCase.albumID = @"000";
+    self.networkGallery.curShowCase.albumID = self.curAlbumId;
+    self.networkGallery.curShowCase.albumName = self.curAlbumName;
+    
     
     [self presentModalViewController:self.networkGallery animated:YES];
 
